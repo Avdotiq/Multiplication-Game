@@ -13,3 +13,16 @@ export const Container = styled.div`
   max-width: 667px;
   height: fit-content;
 `;
+
+export const MEDIASIZE = {
+  xs: "320",
+  md: "768",
+  lg: "1024",
+};
+
+export const BREAKPOINT = {
+  xs: `@media (min-width: ${MEDIASIZE.xs}px)`,
+  md: `@media (min-width: ${MEDIASIZE.md}px)`,
+  lg: `@media (min-width: ${MEDIASIZE.lg}px)`,
+};
+

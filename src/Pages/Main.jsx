@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 // action
 import { updateProblem } from '../store/action/calc';
 // components
-import { MainContainer } from '../components/Grid/Grid';
+import { BREAKPOINT, MainContainer } from '../components/Grid/Grid';
 import CalcButton from '../components/CalcButton/CalcButton';
 // static
 import STRAT_IMG from '../image/start.png';
@@ -25,7 +25,6 @@ function Main() {
   return (
     <MainContainer>
       <StyledGameScreen>
-        <img src={STRAT_IMG} alt='' />
         <StyledBoard>
           <StyledTitle>Multiplying by:</StyledTitle>
           <CalcButton startGame={startGame} />
@@ -50,11 +49,32 @@ const StyledGameScreen = styled.div`
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    bottom: 0;
+    background-image: url(${STRAT_IMG});
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: contain;
+
+    ${BREAKPOINT.md} {
+      height: 100%;
+    }
+  }
 `;
 
 const StyledBoard = styled.div`
-  flex-grow: 2;
-  align-self: center;
+  flex-grow: 1;
+  align-self: baseline;
+  z-index: 1;
+
+  ${BREAKPOINT.md} {
+    align-self: center;
+  }
 `;
 
 const StyledTitle = styled.h1`
