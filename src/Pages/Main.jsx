@@ -27,7 +27,7 @@ function Main() {
       <StyledGameScreen>
         <img src={STRAT_IMG} alt='' />
         <StyledBoard>
-          <StyledTitle>Умножение на:</StyledTitle>
+          <StyledTitle>Multiplying by:</StyledTitle>
           <CalcButton startGame={startGame} />
         </StyledBoard>
         <audio autoPlay>
