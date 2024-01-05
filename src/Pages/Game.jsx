@@ -12,7 +12,7 @@ import TaskStatus from '../components/TaskStatus/TaskStatus';
 import { Container, MainContainer } from '../components/Grid/Grid';
 import AudioStart from '../components/TaskStatus/AudioStart';
 // helpers
-import { compareEqual } from '../helpers/calcReduser';
+import { compareEqual } from '../helpers/calculation';
 // static
 import CALC_IMG from '../image/calc.svg';
 

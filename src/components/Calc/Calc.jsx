@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // helpers
-import { setNumbers } from '../../helpers/base';
+import { generateSequentialNumbers } from '../../helpers/base';
 
 function Calc({
   onHandleChanges,
@@ -10,7 +10,7 @@ function Calc({
   onHandleReset,
   currentResult,
 }) {
-  const calcNumbers = setNumbers();
+  const calcNumbers = generateSequentialNumbers(0);
 
   const handleChange = (item) => {
     if (currentResult === null) {

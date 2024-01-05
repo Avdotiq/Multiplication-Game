@@ -2,11 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 // helpers
-import { setMultiplication } from '../../helpers/base';
+import { generateSequentialNumbers } from '../../helpers/base';
 
 
 function CalcButton({ startGame }) {
-  const calcNumbers = setMultiplication();
+  const calcNumbers = generateSequentialNumbers(1);
 
   return (
     <StyledCalcButton>

@@ -1,4 +1,4 @@
-import { createProblem } from "../../helpers/calcReduser";
+import { createProblem } from "../../helpers/calculation";
 
 const initialState = {
     level: 0,
