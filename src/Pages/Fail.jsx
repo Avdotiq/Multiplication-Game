@@ -35,4 +35,5 @@ const StyledFailScreen = styled.div`
   height: 100vh;
   background-image: url(${FAILED_IMG});
   background-size: cover;
+  background-position: center;
 `;

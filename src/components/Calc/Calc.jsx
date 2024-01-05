@@ -33,12 +33,7 @@ function Calc({
           onClick={() => handleChange(item)}
         />
       ))}
-      <input
-        value='C'
-        onClick={() => onHandleReset()}
-        type='button'
-        readOnly
-      />
+      <input value='C' onClick={() => onHandleReset()} type='button' readOnly />
       <input
         value='OK'
         type='button'
@@ -52,12 +47,28 @@ function Calc({
 export default Calc;
 
 const StyledCalc = styled.div`
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
   display: grid;
-  grid-template-columns: 40px 40px 40px;
-  grid-template-rows: 40px 40px 40px 40px;
-  gap: 10px;
+  grid-template-columns: repeat(5, 48px);
+  grid-template-rows: 48px 48px 35px 35px;
+  gap: 11px;
+  z-index: 1;
+
+  input {
+    border-radius: 10px;
+    background: #fffcb8;
+    box-shadow: 0px 5px 15px 0px rgba(66, 82, 105, 0.4);
+    color: #293450;
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 700;
+
+    &:nth-child(11) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    &:nth-child(12) {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+  }
 `;

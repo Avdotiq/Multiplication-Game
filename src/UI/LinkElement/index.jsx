@@ -13,12 +13,12 @@ export const LinkElement = ({ children, link, ...props }) => {
 const StyleLink = styled(Link)`
   display: block;
   width: fit-content;
-  padding: 5px 10px;
+  padding: 10px 35px;
   background: #8fff00;
   border-radius: 10px;
-  font-family: 'Fascinate';
-  font-weight: 900;
-  font-size: 24px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 30px;
   line-height: 1.3;
   color: #0500ff;
   text-decoration: none;

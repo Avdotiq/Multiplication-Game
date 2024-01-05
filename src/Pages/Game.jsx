@@ -7,14 +7,13 @@ import styled from 'styled-components';
 import { updateProblem, updateCurrentTask } from '../store/action/calc';
 // components
 import Calc from '../components/Calc/Calc';
-import EquationScreen from '../components/EquationScreen/EquationScreen';
 import TaskStatus from '../components/TaskStatus/TaskStatus';
-import { Container, MainContainer } from '../components/Grid/Grid';
+import { MainContainer } from '../components/Grid/Grid';
 import AudioStart from '../components/TaskStatus/AudioStart';
 // helpers
 import { compareEqual } from '../helpers/calculation';
 // static
-import CALC_IMG from '../image/calc.svg';
+import GAME_BG from '../image/play.png';
 
 function Game() {
   const navigate = useNavigate();
@@ -51,25 +50,8 @@ function Game() {
 
   return (
     <MainContainer>
-      <Container>
+      <StyledGame>
         <AudioStart data={data.currentTask} />
-        <CalcImage src={CALC_IMG} alt='' />
-        <Calc
-          onHandleReset={handleReset}
-          onHandleSubmit={compareResult}
-          onHandleChanges={setCurrentResult}
-          currentResult={currentResult}
-          problem={data.problem}
-        />
-        <EquationScreen equation={data.problem.equation} />
-        <StyledResult>
-          <input
-            value={currentResult === null ? ' ' : currentResult}
-            key={currentResult}
-            readOnly
-            maxLength='3'
-          />
-        </StyledResult>
         <StyledTaskStatus>
           {tasks.map((task, index) => (
             <TaskStatus
@@ -79,50 +61,95 @@ function Game() {
             />
           ))}
         </StyledTaskStatus>
-      </Container>
+        <StyledProblem>
+          <input
+            readOnly
+            value={data.problem.equation ? ` ${data.problem.equation} =` : null}
+          />
+          <input
+            value={currentResult === null ? ' ' : currentResult}
+            key={currentResult}
+            readOnly
+            maxLength='3'
+          />
+        </StyledProblem>
+        <Calc
+          onHandleReset={handleReset}
+          onHandleSubmit={compareResult}
+          onHandleChanges={setCurrentResult}
+          currentResult={currentResult}
+          problem={data.problem}
+        />
+      </StyledGame>
     </MainContainer>
   );
 }
 
 export default Game;
 
-const CalcImage = styled.img`
+const StyledGame = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 20px;
+  padding: 20px;
   margin: auto;
-  width: 100%;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: '';
+    width: 100%;
+    max-width: 250px;
+    height: 100%;
+    max-height: 333px;
+    background-image: url(${GAME_BG});
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
 `;
 
-const StyledResult = styled.div`
-  position: absolute;
-  bottom: 80px;
-  left: 220px;
+const StyledProblem = styled.div`
+  display: flex;
 
   input {
-    height: 60px;
     border: none;
-    font-size: 20px;
     background: none;
+    color: #293450;
+    font-family: Roboto;
+    font-size: 48px;
+    font-weight: 700;
+
+    &:first-child {
+      max-width: 165px;
+    }
+
+    &:last-child {
+      max-width: 60px;
+    }
   }
 `;
 
 const StyledTaskStatus = styled.div`
-  position: absolute;
-  top: 55px;
-  left: 75px;
+  width: fit-content;
   display: flex;
-  flex-direction: column;
-  div:nth-of-type(1) {
-    width: 40px;
-    height: 30px;
-  }
+  gap: 15px;
+  grid-column: span 2;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #fffcb8;
+  box-shadow: 0px 5px 15px 0px rgba(66, 82, 105, 0.4);
 
-  div:nth-of-type(2) {
-    width: 28px;
-    height: 28px;
-    margin-top: 24px;
-  }
-  div:nth-of-type(3) {
-    width: 27px;
-    height: 27px;
-    margin-top: 31px;
+  div {
+    width: 34px;
+    height: 34px;
+    background-color: #c6e4f3;
+    border-radius: 50%;
+
+    img {
+      display: block;
+      margin: auto;
+    }
   }
 `;

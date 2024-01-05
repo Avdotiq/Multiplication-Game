@@ -36,7 +36,7 @@ const StyledCalcButton = styled.div`
 
 const StyledButton = styled.input`
   padding: 10px;
-  font-family: 'Borel', cursive;
+  font-family: Roboto;
   font-size: 25px;
   color: #293450;
   border-radius: 5px;

@@ -37,17 +37,18 @@ const StyledVictoryScreen = styled.div`
     left: 50%;
     transform: translateX(-50%);
     content: '';
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-image: url(${VICTORY});
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     z-index: 0;
   }
 
   a {
     position: absolute;
-    bottom: 10%;
+    bottom: 20%;
     left: 50%;
     z-index: 1;
     transform: translateX(-50%);
