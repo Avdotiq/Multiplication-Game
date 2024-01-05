@@ -28,15 +28,14 @@ function AudioStart({ data }) {
     }
   }, [data]);
 
-  return (
-    <>
-      {play ? (
-        <audio autoPlay>
-          <source src={setSrc()} type='audio/mpeg' />
-        </audio>
-      ) : null}
-    </>
-  );
+  if (play) {
+    return (
+      <audio autoPlay>
+        <source src={setSrc()} type='audio/mpeg' />
+      </audio>
+    );
+  }
+  return null;
 }
 
 export default AudioStart;

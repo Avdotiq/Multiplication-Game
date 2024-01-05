@@ -6,11 +6,14 @@ import ERROR_SVG from '../../image/error.svg';
 
 function ImageResponse(data) {
   const { result } = data;
-  const src = result === true ? RIGHT_SVG : ERROR_SVG;
 
-  return (
-  <> { result !== null ? <img src={src} alt='' /> : null } </>
-  )
+  if (result !== undefined && result !== null) {
+    const src = result === true ? RIGHT_SVG : ERROR_SVG;
+
+    return <img src={src} alt='' />;
+  }
+
+  return null;
 }
 
 export default ImageResponse;
