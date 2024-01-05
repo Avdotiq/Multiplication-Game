@@ -5,7 +5,11 @@ import { useDispatch } from 'react-redux';
 // action
 import { resetStore } from '../store/action/calc';
 // components
+import { MainContainer } from '../components/Grid/Grid';
 import { LinkElement } from '../UI/LinkElement';
+// static
+import VICTORY_MP3 from '../sounds/bal_praise5.mp3';
+import VICTORY from '../image/win.gif';
 
 function Victory() {
   const dispatch = useDispatch();
@@ -14,18 +18,38 @@ function Victory() {
     resetStore(dispatch);
   });
   return (
-    <StyledVictoryScreen>
-      <h1>Victory</h1>
-      <LinkElement link='/'>Try again</LinkElement>
-    </StyledVictoryScreen>
+    <MainContainer>
+      <StyledVictoryScreen>
+        <LinkElement link='/'>Play again</LinkElement>
+        <audio autoPlay>
+          <source src={VICTORY_MP3} type='audio/mpeg' />
+        </audio>
+      </StyledVictoryScreen>
+    </MainContainer>
   );
 }
 
 export default Victory;
 
 const StyledVictoryScreen = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  &:after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 50%;
+    height: 100%;
+    background-image: url(${VICTORY});
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  a {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+  }
 `;
