@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   overflow: hidden;
   background: #c6e4f3;
 `;
@@ -15,9 +16,9 @@ export const Container = styled.div`
 `;
 
 export const MEDIASIZE = {
-  xs: "320",
-  md: "768",
-  lg: "1024",
+  xs: '320',
+  md: '768',
+  lg: '1024',
 };
 
 export const BREAKPOINT = {
@@ -25,4 +26,3 @@ export const BREAKPOINT = {
   md: `@media (min-width: ${MEDIASIZE.md}px)`,
   lg: `@media (min-width: ${MEDIASIZE.lg}px)`,
 };
-
