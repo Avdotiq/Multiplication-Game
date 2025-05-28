@@ -62,16 +62,12 @@ function Game() {
           ))}
         </StyledTaskStatus>
         <StyledProblem>
-          <input
-            readOnly
-            value={data.problem.equation ? ` ${data.problem.equation} =` : null}
-          />
+          <p dangerouslySetInnerHTML={{__html: data.problem.equation ? ` ${data.problem.equation} =` : null}}/>
           <input
             value={currentResult === null ? ' ' : currentResult}
             key={currentResult}
             readOnly
-            maxLength='3'
-          />
+          />    
         </StyledProblem>
         <Calc
           onHandleReset={handleReset}
@@ -116,18 +112,19 @@ const StyledProblem = styled.div`
   input {
     border: none;
     background: none;
+    margin-left: 10px;
+    max-width: 100px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  p, input {
     color: #293450;
     font-family: Roboto;
     font-size: 48px;
     font-weight: 700;
-
-    &:first-child {
-      max-width: 165px;
-    }
-
-    &:last-child {
-      max-width: 100px;
-    }
   }
 `;
 

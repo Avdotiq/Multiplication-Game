@@ -13,13 +13,17 @@ function Calc({
   const calcNumbers = generateSequentialNumbers(0);
 
   const handleChange = (item) => {
+    let result;
+    let itemStr = String(item);
     if (currentResult === null) {
-      onHandleChanges(item);
+      result = itemStr;
     } else {
-      let splitResult = String(currentResult).split(' ');
-      splitResult.push(item);
-      onHandleChanges(splitResult.join('') * 1);
+      let currentStr = String(currentResult);
+      if (currentStr.length >= 3) return;
+
+      result = currentStr + itemStr;
     }
+    onHandleChanges(Number(result));
   };
 
   return (
