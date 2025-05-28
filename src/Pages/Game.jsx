@@ -126,7 +126,7 @@ const StyledProblem = styled.div`
     }
 
     &:last-child {
-      max-width: 60px;
+      max-width: 100px;
     }
   }
 `;
