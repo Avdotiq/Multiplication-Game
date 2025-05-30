@@ -1,5 +1,5 @@
 // library
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -17,17 +17,39 @@ import BALMAIN_MP3 from '../sounds/bal_mainmenu.mp3';
 function Main() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [selectedMode, setSelectedMode] = useState(null);
 
-  const startGame = (item) => {
-    updateProblem(dispatch, item);
+  const handleStart = (value) => {
+    updateProblem(dispatch, value, selectedMode);
     navigate('/game');
   };
+
   return (
     <MainContainer>
       <StyledGameScreen>
         <StyledBoard>
-          <StyledTitle>Multiplying by:</StyledTitle>
-          <CalcButton startGame={startGame} />
+          <StyledTitle>Choose a mode:</StyledTitle>
+          <ModeButtons>
+            <ModeButton
+              selected={selectedMode === 'multiplication'}
+              onClick={() => setSelectedMode('multiplication')}
+            >
+              x
+            </ModeButton>
+            <ModeButton
+              selected={selectedMode === 'division'}
+              onClick={() => setSelectedMode('division')}
+            >
+              ÷
+            </ModeButton>
+          </ModeButtons>
+
+          {selectedMode && (
+            <>
+              <SectionTitle>Choose the number</SectionTitle>
+              <CalcButton startGame={handleStart} />
+            </>
+          )}
         </StyledBoard>
         <audio autoPlay>
           <source src={MAIN_MP3} type='audio/mpeg' />
@@ -81,4 +103,36 @@ const StyledTitle = styled.h1`
   font-family: 'Roboto', sans-serif;
   text-align: center;
   color: #293450;
+`;
+
+const SectionTitle = styled.h2`
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: #3e5170;
+  font-size: 20px;
+  margin-top: 20px;
+`;
+
+const ModeButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+`;
+
+const ModeButton = styled.button`
+  font-family: 'Roboto', sans-serif;
+  font-size: 56px;
+  padding: 10px 50px;
+  border: 2px solid #3e5170;
+  background-color: ${({ selected }) => (selected ? '#3e5170' : 'white')};
+  color: ${({ selected }) => (selected ? 'white' : '#3e5170')};
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #3e5170;
+    color: white;
+  }
 `;

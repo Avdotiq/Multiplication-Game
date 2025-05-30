@@ -11,7 +11,7 @@ export const calcReducer = (state = initialState, action) => {
         case "UPDATE_PROBLEM":
             return {
                 ...state,
-                problem: createProblem(action.data.multiplication),
+                problem: createProblem(action.data.value, action.data.type),
             };
         case "UPDATE_CURRENT_TASK":
             return {

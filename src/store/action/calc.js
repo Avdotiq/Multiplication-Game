@@ -1,10 +1,11 @@
-export const updateProblem = (dispatch, multiplication, equation, equal) => {
+import { createProblem } from '../../helpers/calculation';
+
+export const updateProblem = (dispatch, value, type = "multiplication") => {
     dispatch({
         type: "UPDATE_PROBLEM",
         data: {
-            multiplication,
-            equation,
-            equal,
+            value,
+            type,
         },
     });
 };

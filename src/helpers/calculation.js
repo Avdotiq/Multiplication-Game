@@ -1,33 +1,38 @@
-export const compareEqual = (equal, result) => {
-    if (equal === result) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
 let lastProblem = null;
 
-export const createProblem = (multiplication) => {
-    let randomNumber;
+export const createProblem = (value, type = "multiplication") => {
+    let a, b, equation, result;
 
     do {
-        randomNumber = Math.floor(Math.random() * 9) + 1;
-    } while (
-        lastProblem &&
-        lastProblem.multiplication === multiplication &&
-        lastProblem.number === randomNumber
-    );
+        a = Math.floor(Math.random() * 9) + 1;
+        b = value;
 
-    const newProblem = {
-        multiplication,
-        number: randomNumber,
-        equation: `${randomNumber} × ${multiplication}`,
-        equal: randomNumber * multiplication,
+        if (type === "multiplication") {
+            equation = `${a} × ${b}`;
+            result = a * b;
+        } else if (type === "division") {
+            result = a * b;
+            const useA = Math.random() < 0.5;
+            const divisor = useA ? a : b;
+            const answer = useA ? b : a;
+            equation = `${result} ÷ ${divisor}`;
+            result = answer;
+        }
+    } while (lastProblem && lastProblem.equation === equation);
+
+    const problem = {
+        type,
+        equation,
+        equal: result,
+        value,
     };
 
-    lastProblem = newProblem;
+    lastProblem = problem;
 
-    return newProblem;
+    return problem;
 };
 
+
+export const compareEqual = (correctAnswer, userAnswer) => {
+    return Number(correctAnswer) === Number(userAnswer);
+};

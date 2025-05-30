@@ -28,7 +28,7 @@ function Game() {
     let isProblemSolve = compareEqual(data.problem.equal, currentResult);
     setIsProblemSolving(isProblemSolve);
     if (isProblemSolve) {
-      updateProblem(dispatch, data.problem.multiplication);
+      updateProblem(dispatch, data.problem.value, data.problem.type);
       updateCurrentTask(dispatch);
       setCurrentTask(data.currentTask);
     }
@@ -90,6 +90,7 @@ const StyledGame = styled.div`
   gap: 20px;
   padding: 20px;
   margin: auto;
+
   &::after {
     position: absolute;
     bottom: 0;
