@@ -6,11 +6,28 @@ export const compareEqual = (equal, result) => {
     }
 };
 
+let lastProblem = null;
+
 export const createProblem = (multiplication) => {
-    let number = Math.floor(Math.random() * (10 - 1)) + 1;
-    return {
-        multiplication: multiplication,
-        equation: `${number} * ${multiplication}`,
-        equal: number * multiplication,
+    let randomNumber;
+
+    do {
+        randomNumber = Math.floor(Math.random() * 9) + 1;
+    } while (
+        lastProblem &&
+        lastProblem.multiplication === multiplication &&
+        lastProblem.number === randomNumber
+    );
+
+    const newProblem = {
+        multiplication,
+        number: randomNumber,
+        equation: `${randomNumber} × ${multiplication}`,
+        equal: randomNumber * multiplication,
     };
+
+    lastProblem = newProblem;
+
+    return newProblem;
 };
+

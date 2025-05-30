@@ -62,12 +62,12 @@ function Game() {
           ))}
         </StyledTaskStatus>
         <StyledProblem>
-          <p dangerouslySetInnerHTML={{__html: data.problem.equation ? ` ${data.problem.equation} =` : null}}/>
-          <input
-            value={currentResult === null ? ' ' : currentResult}
+          <p
+            dangerouslySetInnerHTML={{
+              __html: `${data.problem.equation ? `${data.problem.equation} =` : ''} <strong>${currentResult ?? ''}</strong>`
+            }}
             key={currentResult}
-            readOnly
-          />    
+          />
         </StyledProblem>
         <Calc
           onHandleReset={handleReset}
