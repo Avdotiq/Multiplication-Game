@@ -1,8 +1,8 @@
 // library
 import React from 'react';
 // static
-import RIGHT_SVG from '../../image/right.svg';
-import ERROR_SVG from '../../image/error.svg';
+import RIGHT_SVG from '../../assets/image/right.svg';
+import ERROR_SVG from '../../assets/image/error.svg';
 
 function ImageResponse(data) {
   const { result } = data;

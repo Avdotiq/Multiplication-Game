@@ -9,10 +9,10 @@ import { updateProblem } from '../store/action/calc';
 import { BREAKPOINT, MainContainer } from '../components/Grid/Grid';
 import CalcButton from '../components/CalcButton/CalcButton';
 // static
-import STRAT_IMG from '../image/start.png';
-import START_BG from '../image/confetti.png';
-import MAIN_MP3 from '../sounds/main.mp3';
-import BALMAIN_MP3 from '../sounds/bal_mainmenu.mp3';
+import STRAT_IMG from '../assets/image/start.png';
+import START_BG from '../assets/image/confetti.png';
+import MAIN_MP3 from '../assets/sounds/main.mp3';
+import BALMAIN_MP3 from '../assets/sounds/bal_mainmenu.mp3';
 
 function Main() {
   const navigate = useNavigate();

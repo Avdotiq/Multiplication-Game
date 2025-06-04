@@ -1,9 +1,9 @@
 // library
 import React, { useEffect, useState } from 'react';
 // static
-import PROBLEM_1 from '../../sounds/bal_general_problem1.mp3';
-import PROBLEM_2 from '../../sounds/bal_general_problem2.mp3';
-import PROBLEM_3 from '../../sounds/bal_general_problem3.mp3';
+import PROBLEM_1 from '../../assets/sounds/bal_general_problem1.mp3';
+import PROBLEM_2 from '../../assets/sounds/bal_general_problem2.mp3';
+import PROBLEM_3 from '../../assets/sounds/bal_general_problem3.mp3';
 
 function AudioStart({ data }) {
   const allProblemsSrc = [PROBLEM_1, PROBLEM_2, PROBLEM_3];

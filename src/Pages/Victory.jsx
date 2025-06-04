@@ -8,8 +8,8 @@ import { resetStore } from '../store/action/calc';
 import { MainContainer } from '../components/Grid/Grid';
 import { LinkElement } from '../UI/LinkElement';
 // static
-import VICTORY_MP3 from '../sounds/bal_praise5.mp3';
-import VICTORY from '../image/win.gif';
+import VICTORY_MP3 from '../assets/sounds/bal_praise5.mp3';
+import VICTORY from '../assets/image/win.gif';
 
 function Victory() {
   const dispatch = useDispatch();

@@ -13,7 +13,7 @@ import AudioStart from '../components/TaskStatus/AudioStart';
 // helpers
 import { compareEqual } from '../helpers/calculation';
 // static
-import GAME_BG from '../image/play.png';
+import GAME_BG from '../assets/image/play.png';
 
 function Game() {
   const navigate = useNavigate();

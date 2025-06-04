@@ -7,8 +7,8 @@ import { resetStore } from '../store/action/calc';
 // components
 import { LinkElement } from '../UI/LinkElement';
 // static
-import FAILED_IMG from '../image/error1.jpg';
-import FAIL_MP3 from '../sounds/bal_screech.mp3';
+import FAILED_IMG from '../assets/image/error1.jpg';
+import FAIL_MP3 from '../assets/sounds/bal_screech.mp3';
 
 function Fail() {
   const dispatch = useDispatch();
