@@ -8,6 +8,8 @@ import { updateProblem } from '../store/action/calc';
 // components
 import { BREAKPOINT, MainContainer } from '../components/Grid/Grid';
 import CalcButton from '../components/CalcButton/CalcButton';
+// hooks
+import { useSound } from '../hooks/useSound';
 // static
 import STRAT_IMG from '../assets/image/start.png';
 import START_BG from '../assets/image/confetti.png';
@@ -19,25 +21,18 @@ function Main() {
   const dispatch = useDispatch();
   const [selectedMode, setSelectedMode] = useState(null);
 
+  const shouldPlay = selectedMode !== null;
+
+  useSound(MAIN_MP3, shouldPlay, 0.5);
+  useSound(BALMAIN_MP3, shouldPlay, 0.4);
+
   const handleStart = (value) => {
     updateProblem(dispatch, value, selectedMode);
     navigate('/game');
   };
 
-  const playMainMusic = () => {
-    const audio = new Audio(MAIN_MP3);
-    const audio2 = new Audio(BALMAIN_MP3);
-    audio2.play().catch((e) => {
-      console.warn("Failed to play music:", e);
-    });
-    audio.play().catch((e) => {
-      console.warn("Failed to play music:", e);
-    });
-  };
-
   const handleModeSelect = (mode) => {
     setSelectedMode(mode);
-    playMainMusic();
   };
 
   return (

@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { resetStore } from '../store/action/calc';
 // components
 import { LinkElement } from '../UI/LinkElement';
+// hooks
+import { useSound } from '../hooks/useSound';
 // static
 import FAILED_IMG from '../assets/image/error1.jpg';
 import FAIL_MP3 from '../assets/sounds/bal_screech.mp3';
@@ -13,14 +15,14 @@ import FAIL_MP3 from '../assets/sounds/bal_screech.mp3';
 function Fail() {
   const dispatch = useDispatch();
 
+  useSound(FAIL_MP3, true, 1);
+
   useEffect(() => {
     resetStore(dispatch);
-  })
+  }, [])
+
   return (
     <StyledFailScreen>
-      <audio autoPlay>
-        <source src={FAIL_MP3} type='audio/mpeg' />
-      </audio>
       <LinkElement link='/'>Try again</LinkElement>
     </StyledFailScreen>
   );

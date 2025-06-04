@@ -11,11 +11,9 @@ export const createProblem = (value, type = "multiplication") => {
             equation = `${a} × ${b}`;
             result = a * b;
         } else if (type === "division") {
-            result = a * b;
-            const useA = Math.random() < 0.5;
-            const divisor = useA ? a : b;
-            const answer = useA ? b : a;
-            equation = `${result} ÷ ${divisor}`;
+            const answer = Math.floor(Math.random() * 9) + 1;
+            result = answer * value;
+            equation = `${result} ÷ ${value}`;
             result = answer;
         }
     } while (lastProblem && lastProblem.equation === equation);

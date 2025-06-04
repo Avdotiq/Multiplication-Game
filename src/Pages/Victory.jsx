@@ -7,6 +7,8 @@ import { resetStore } from '../store/action/calc';
 // components
 import { MainContainer } from '../components/Grid/Grid';
 import { LinkElement } from '../UI/LinkElement';
+// hooks
+import useAudio from '../hooks/useAudio';
 // static
 import VICTORY_MP3 from '../assets/sounds/bal_praise5.mp3';
 import VICTORY from '../assets/image/win.gif';
@@ -14,16 +16,16 @@ import VICTORY from '../assets/image/win.gif';
 function Victory() {
   const dispatch = useDispatch();
 
+  useAudio(VICTORY_MP3);
+
   useEffect(() => {
     resetStore(dispatch);
-  });
+  }, []);
+
   return (
     <MainContainer>
       <StyledVictoryScreen>
         <LinkElement link='/'>Play again</LinkElement>
-        <audio autoPlay>
-          <source src={VICTORY_MP3} type='audio/mpeg' />
-        </audio>
       </StyledVictoryScreen>
     </MainContainer>
   );
