@@ -16,7 +16,7 @@ import VICTORY from '../assets/image/win.gif';
 function Victory() {
   const dispatch = useDispatch();
 
-  useSound(VICTORY_MP3);
+  useSound(VICTORY_MP3, true, 1);
 
   useEffect(() => {
     resetStore(dispatch);
