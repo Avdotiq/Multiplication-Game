@@ -8,7 +8,7 @@ import { resetStore } from '../store/action/calc';
 import { MainContainer } from '../components/Grid/Grid';
 import { LinkElement } from '../UI/LinkElement';
 // hooks
-import useAudio from '../hooks/useAudio';
+import useSound from '../hooks/useSound';
 // static
 import VICTORY_MP3 from '../assets/sounds/bal_praise5.mp3';
 import VICTORY from '../assets/image/win.gif';
@@ -16,7 +16,7 @@ import VICTORY from '../assets/image/win.gif';
 function Victory() {
   const dispatch = useDispatch();
 
-  useAudio(VICTORY_MP3);
+  useSound(VICTORY_MP3);
 
   useEffect(() => {
     resetStore(dispatch);
