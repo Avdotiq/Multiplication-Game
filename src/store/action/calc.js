@@ -1,5 +1,3 @@
-import { createProblem } from '../../helpers/calculation';
-
 export const updateProblem = (dispatch, value, type = "multiplication") => {
     dispatch({
         type: "UPDATE_PROBLEM",
