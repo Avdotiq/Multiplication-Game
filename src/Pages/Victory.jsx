@@ -52,5 +52,6 @@ const StyledVictoryScreen = styled.div`
     left: 50%;
     z-index: 1;
     transform: translateX(-50%);
+    white-space: nowrap;
   }
 `;

@@ -24,6 +24,22 @@ function Main() {
     navigate('/game');
   };
 
+  const playMainMusic = () => {
+    const audio = new Audio(MAIN_MP3);
+    const audio2 = new Audio(BALMAIN_MP3);
+    audio2.play().catch((e) => {
+      console.warn("Failed to play music:", e);
+    });
+    audio.play().catch((e) => {
+      console.warn("Failed to play music:", e);
+    });
+  };
+
+  const handleModeSelect = (mode) => {
+    setSelectedMode(mode);
+    playMainMusic();
+  };
+
   return (
     <MainContainer>
       <StyledGameScreen>
@@ -32,13 +48,13 @@ function Main() {
           <ModeButtons>
             <ModeButton
               selected={selectedMode === 'multiplication'}
-              onClick={() => setSelectedMode('multiplication')}
+              onClick={() => handleModeSelect('multiplication')}
             >
               x
             </ModeButton>
             <ModeButton
               selected={selectedMode === 'division'}
-              onClick={() => setSelectedMode('division')}
+              onClick={() => handleModeSelect('division')}
             >
               ÷
             </ModeButton>
@@ -51,12 +67,6 @@ function Main() {
             </>
           )}
         </StyledBoard>
-        <audio autoPlay>
-          <source src={MAIN_MP3} type='audio/mpeg' />
-        </audio>
-        <audio autoPlay>
-          <source src={BALMAIN_MP3} type='audio/mpeg' />
-        </audio>
       </StyledGameScreen>
     </MainContainer>
   );
@@ -123,16 +133,12 @@ const ModeButtons = styled.div`
 const ModeButton = styled.button`
   font-family: 'Roboto', sans-serif;
   font-size: 56px;
-  padding: 10px 50px;
-  border: 2px solid #3e5170;
-  background-color: ${({ selected }) => (selected ? '#3e5170' : 'white')};
-  color: ${({ selected }) => (selected ? 'white' : '#3e5170')};
-  border-radius: 10px;
+  padding: 10px 22px;
+  border: none;
+  background-color: ${({ selected }) => (selected ? '#caf989' : '#fffcb8')};
+  color: #293450;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px 0px rgba(66, 82, 105, 0.4);
   cursor: pointer;
   transition: all 0.2s ease;
-
-  &:hover {
-    background-color: #3e5170;
-    color: white;
-  }
 `;
