@@ -123,7 +123,7 @@ const StyledProblem = styled.div`
 
   p, input {
     color: #293450;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-size: 48px;
     font-weight: 700;
   }

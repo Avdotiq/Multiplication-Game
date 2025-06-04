@@ -62,7 +62,7 @@ const StyledCalc = styled.div`
     background: #fffcb8;
     box-shadow: 0px 5px 15px 0px rgba(66, 82, 105, 0.4);
     color: #293450;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-size: 22px;
     font-weight: 700;
 
